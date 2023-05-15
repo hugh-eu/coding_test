@@ -9,20 +9,13 @@ class Solution {
         });
         int[] areaMissile = {-1, -1};
         for (int[] t : targets) {
-            if (areaMissile[0] == -1) {
+            if ((areaMissile[0] > -1) && ((areaMissile[0] <= t[0] && t[0] < areaMissile[1]) || (areaMissile[0] < t[1] && t[1] <= areaMissile[1]))) {
+                areaMissile[0] = Math.max(t[0], areaMissile[0]);
+                areaMissile[1] = Math.min(t[1], areaMissile[1]);
+            } else {
                 areaMissile[0] = t[0];
                 areaMissile[1] = t[1];
                 answer++;
-            }
-            else {
-                if ((areaMissile[0] <= t[0] && t[0] < areaMissile[1]) || (areaMissile[0] < t[1] && t[1] <= areaMissile[1])) {
-                    areaMissile[0] = Math.max(t[0], areaMissile[0]);
-                    areaMissile[1] = Math.min(t[1], areaMissile[1]);
-                } else {
-                    areaMissile[0] = t[0];
-                    areaMissile[1] = t[1];
-                    answer++;
-                }
             }
         }
         
