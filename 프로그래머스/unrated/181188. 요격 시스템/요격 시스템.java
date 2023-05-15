@@ -2,20 +2,35 @@ import java.util.Arrays;
 
 class Solution {
     public int solution(int[][] targets) {
-        int answer = 0;
+//         int answer = 0;
         
+//         Arrays.sort(targets, (o1, o2) -> {
+//             return o1[0] - o2[0];
+//         });
+//         int[] areaMissile = {-1, -1};
+//         for (int[] t : targets) {
+//             if ((areaMissile[0] > -1) && ((areaMissile[0] <= t[0] && t[0] < areaMissile[1]) || (areaMissile[0] < t[1] && t[1] <= areaMissile[1]))) {
+//                 areaMissile[0] = Math.max(t[0], areaMissile[0]);
+//                 areaMissile[1] = Math.min(t[1], areaMissile[1]);
+//             } else {
+//                 areaMissile[0] = t[0];
+//                 areaMissile[1] = t[1];
+//                 answer++;
+//             }
+//         }
+        
+        int answer = 1;
+
         Arrays.sort(targets, (o1, o2) -> {
             return o1[0] - o2[0];
         });
-        int[] areaMissile = {-1, -1};
+        int endArea = targets[0][1];
         for (int[] t : targets) {
-            if ((areaMissile[0] > -1) && ((areaMissile[0] <= t[0] && t[0] < areaMissile[1]) || (areaMissile[0] < t[1] && t[1] <= areaMissile[1]))) {
-                areaMissile[0] = Math.max(t[0], areaMissile[0]);
-                areaMissile[1] = Math.min(t[1], areaMissile[1]);
-            } else {
-                areaMissile[0] = t[0];
-                areaMissile[1] = t[1];
+            if (t[0] >= endArea) {
                 answer++;
+                endArea = t[1];
+            } else {
+                endArea = Math.min(endArea, t[1]);
             }
         }
         
