@@ -14,18 +14,6 @@ class Solution
             }
             if (cnt > answer) answer = cnt;
         }
-        for (int i = 0; i < s.length() - 1; i++) {
-            if (s.charAt(i) == s.charAt(i + 1)) {
-                int cnt = 2;
-                if (i != 0 && i != s.length() - 2) {
-                    for (int j = 1; j <= (i < s.length() / 2 ? i : s.length() - 2 - i); j++) {
-                        if (s.charAt(i - j) == s.charAt(i + 1 + j)) cnt += 2;
-                        else break;
-                    }
-                }
-                if (cnt > answer) answer = cnt;
-            }
-        }
 
         return answer;
     }
