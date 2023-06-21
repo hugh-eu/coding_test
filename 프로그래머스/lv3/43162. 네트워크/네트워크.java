@@ -35,8 +35,8 @@ class Solution {
         for (int i = 0; i < networks.length; i++) {
             if (networks[i] == 0) {
                 networks[i] = 1;
-//                dfs(i);
-                bfs(i);
+                dfs(i);
+                // bfs(i);
                 answer++;
             }
         }
