@@ -5,7 +5,7 @@ class Solution {
         ArrayList<Integer> answer = new ArrayList<>();
 
         for (int[] b : balls) {
-            int minDis = 25000000;
+            int minDis = 6250000;
             if (startY != b[1]) {
                 if (startX != m && b[0] != m) {
                     if (minDis > Math.pow(m + (m - startX) - b[0], 2) + Math.pow(startY - b[1], 2))
