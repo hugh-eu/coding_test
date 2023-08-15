@@ -7,13 +7,15 @@ int solution(vector<int> ingredient) {
     int answer = 0;
 
     // bool flag = true;
+    // int sIdx = 0;
     // while (flag && ingredient.size() >= 4) {
     //     flag = false;
-    //     for (int i = 0; i < ingredient.size() - 3; i++) {
+    //     for (int i = sIdx; i < ingredient.size() - 3; i++) {
     //         if (ingredient[i] == 1 && ingredient[i + 1] == 2 && ingredient[i + 2] == 3 && ingredient[i + 3] == 1) {
     //             answer++;
     //             flag = true;
     //             ingredient.erase(ingredient.begin() + i, ingredient.begin() + i + 4);
+    //             if (i >= 3) sIdx = i - 3;
     //             break;
     //         }
     //     }
