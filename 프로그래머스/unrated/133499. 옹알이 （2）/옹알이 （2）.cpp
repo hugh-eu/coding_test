@@ -15,10 +15,10 @@ int solution(vector<string> babbling) {
                 flag = false;
                 break;
             }
-            int pos = 0;
-            while (b.find(p, pos) != string::npos) {
-                pos = b.find(p, pos) + p.size();
+            int position = 0;
+            while (b.find(p, position) != string::npos) {
                 length += p.size();
+                position = b.find(p, position) + p.size();
             }
         }
         if (flag && b.size() == length) answer++;
