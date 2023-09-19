@@ -21,6 +21,5 @@ int solution(string s) {
         }
     }
     
-    
     return stoi(answer);
 }
