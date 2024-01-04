@@ -7,21 +7,9 @@ string solution(string s, int n) {
     string answer = "";
     
     for (char c : s) {
-        if (65 <= c && c <= 90) {
-            int i = c;
-            i += n;
-            i -= 65;
-            i = 65 + i % 26;
-            c = i;
-            answer += c;
-        } else if (97 <= c && c <= 122) {
-            int i = c;
-            i += n;
-            i -= 97;
-            i = 97 + i % 26;
-            c = i;
-            answer += c;
-        } else answer += c;
+        if (65 <= c && c <= 90) answer += 65 + (c + n - 65) % 26;
+        else if (97 <= c && c <= 122) answer += 97 + (c + n - 97) % 26;
+        else answer += c;
     }
     
     return answer;
