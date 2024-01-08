@@ -15,9 +15,12 @@ int solution(vector<string> friends, vector<string> gifts) {
         istringstream iss(gift);
         string buffer;
         while (getline(iss, buffer, ' ')) splitGift.push_back(buffer);
-        giftTable[find(friends.begin(), friends.end(), splitGift[0]) - friends.begin()][find(friends.begin(), friends.end(), splitGift[1]) - friends.begin()]++;
+        int i = find(friends.begin(), friends.end(), splitGift[0]) - friends.begin();
+        int j = find(friends.begin(), friends.end(), splitGift[1]) - friends.begin();
+        giftTable[i][j]++;
+        giftIndex[i]++;
+        giftIndex[j]--;
     }
-    for (int i = 0; i < friends.size(); i++) for (int j = 0; j < friends.size(); j++) giftIndex[i] += giftTable[i][j] - giftTable[j][i];
     for (int i = 0; i < friends.size() - 1; i++) for (int j = i + 1; j < friends.size(); j++) {
         if (giftTable[i][j] > giftTable[j][i]) numOfGifts[i]++;
         else if (giftTable[i][j] < giftTable[j][i]) numOfGifts[j]++;
