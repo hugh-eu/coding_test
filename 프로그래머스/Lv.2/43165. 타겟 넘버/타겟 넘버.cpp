@@ -1,8 +1,6 @@
 #include <string>
 #include <vector>
 
-#include <iostream>
-
 using namespace std;
 
 void dfs(vector<int> &numbers, int &target, int &numsSize, int &answer, int sumValue, int i) {
