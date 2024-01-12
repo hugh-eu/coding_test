@@ -9,10 +9,8 @@ void dfs(vector<int> &numbers, int &target, int &numsSize, int &answer, int sumV
     if (i == numsSize) {
         if (sumValue == target) answer++;
     } else {
-        for (int j = 0; j < 2; j++) {
-            if (j == 0) dfs(numbers, target, numsSize, answer, sumValue + numbers[i], i + 1);
-            else dfs(numbers, target, numsSize, answer, sumValue - numbers[i], i + 1);
-        }
+        dfs(numbers, target, numsSize, answer, sumValue + numbers[i], i + 1);
+        dfs(numbers, target, numsSize, answer, sumValue - numbers[i], i + 1);
     }
 }
 
