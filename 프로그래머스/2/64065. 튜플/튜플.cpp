@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
-#include <iostream>
 
 using namespace std;
 
@@ -20,7 +19,7 @@ vector<string> split(string &str, string dlim) {
     return result;
 }
 
-bool compare(vector<int> &a, vector<int> &b) {
+bool compare(vector<string> &a, vector<string> &b) {
     return a.size() < b.size();
 }
 
@@ -32,21 +31,18 @@ vector<int> solution(string s) {
     vector<vector<string>> vvs;
     for (string &str : split(s, "},{")) vvs.push_back(split(str, ","));
 
-    vector<vector<int>> vvi;
-    for (vector<string> &v : vvs) {
-        vector<int> vi;
-        for (string &s : v) vi.push_back(stoi(s));
-        vvi.push_back(vi);
-    }
+    sort(vvs.begin(), vvs.end(), compare);
 
-    sort(vvi.begin(), vvi.end(), compare);
-    
+    auto sumFunc = [](int sum, string &str) {
+        return sum + stoi(str);
+    };
+
     int prevSum = 0;
-    for (vector<int> &vi : vvi) {
-        int sum = accumulate(vi.begin(), vi.end(), 0);
+    for (vector<string> &vs : vvs) {
+        int sum = accumulate(vs.begin(), vs.end(), 0, sumFunc);
         answer.push_back(sum - prevSum);
         prevSum = sum;
     }
-        
+
     return answer;
 }
