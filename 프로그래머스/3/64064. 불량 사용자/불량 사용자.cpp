@@ -27,9 +27,7 @@ int solution(vector<string> user_id, vector<string> banned_id) {
             if (user_id[j].size() == banned_id[i].size()) {
                 for (int k = 0; k < user_id[j].size(); ++k) {
                     if (banned_id[i][k] != '*' && banned_id[i][k] != user_id[j][k]) break;
-                    if (k == user_id[j].size()-1) {
-                        v.push_back(j);
-                    }
+                    if (k == user_id[j].size()-1) v.push_back(j);
                 }
             }
         }
